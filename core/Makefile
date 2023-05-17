@@ -33,7 +33,7 @@ android: android_x86 android_x64 android_arm64-v8a
 
 apple: macos ios ios_64 maccatalyst_x64 maccatalyst_arm64 ios_simulator_x64 ios_simulator_arm64 tvos_simulator_x64 tvos_simulator_arm64 tvos lipo
 
-linux: linux_x64 linux_arm64 linux_arm
+linux: linux_x64 linux_arm64
 
 linux_x64:
 	rm -rf build/linux-x64
