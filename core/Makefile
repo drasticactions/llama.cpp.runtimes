@@ -53,7 +53,7 @@ macos:
 	rm -rf build/macos
 	cmake $(CMAKE_COMMANDS) -DCMAKE_TOOLCHAIN_FILE=ios.toolchain.cmake -DPLATFORM=MAC_UNIVERSAL -S . -B build/macos
 	cmake --build build/macos
-	mkdir -p Llama.cpp.Runtime/macos
+	mkdir -p runtimes/macos
 	cp build/macos/llama.cpp/libllama.dylib runtimes/macos/libllama.dylib
 
 ios:

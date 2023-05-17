@@ -12,4 +12,4 @@ endif()
 project ("llama.net")
 
 # Include sub-projects.
-add_subdirectory ("llama.cpp")
+add_subdirectory ("../llama.cpp" "llama.cpp")
