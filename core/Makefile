@@ -22,7 +22,6 @@ endif
 nuget:
 	mkdir -p nupkgs
 	nuget pack Llama.cpp.Runtime.nuspec -Version $(VERSION) -OutputDirectory ./nupkgs
-	dotnet pack Llama.cpp/Llama.cpp.csproj -p:Version=$(VERSION) -o ./nupkgs -c $(BUILD_TYPE)
 
 clean:
 	rm -rf nupkgs
