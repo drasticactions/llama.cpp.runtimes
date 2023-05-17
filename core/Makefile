@@ -1,5 +1,5 @@
 BUILD_TYPE=Release
-VERSION=1.0.1
+VERSION=1.0.2
 BUILD_SHARED_LIBS=true
 NDK :=
 ifeq ($(strip $(NDK_PATH)),)
