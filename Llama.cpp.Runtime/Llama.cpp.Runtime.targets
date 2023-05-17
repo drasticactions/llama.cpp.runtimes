@@ -85,11 +85,5 @@
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
             <TargetPath>runtimes/linux-x64/libllama.so</TargetPath>
         </None>
-        <None Visible="false" Include="$(MSBuildThisFileDirectory)linux-arm\libllama.so">
-            <Pack>true</Pack>
-            <PackageCopyToOutput>true</PackageCopyToOutput>
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-            <TargetPath>runtimes/linux-arm/libllama.so</TargetPath>
-        </None>
     </ItemGroup>
 </Project>
