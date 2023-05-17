@@ -8,7 +8,7 @@
     <owners>Drastic Actions</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <summary>Cross-platform dotnet runtimes for LLAMA.</summary>
-    <description>llama.cpp.Runtime contains the native runtime libraries to enable Whisper on .NET apps with LLAMA Libraries.</description>
+    <description>llama.cpp.Runtime contains the native runtime libraries to enable LLaMA on .NET apps with native LLaMA Libraries.</description>
     <tags>llama;ios;android;linux;windows;macos;cross-platform</tags>
     <projectUrl>https://github.com/drasticactions/llama.cpp.runtimes</projectUrl>
     <license type="expression">MIT</license>
