@@ -20,7 +20,15 @@
             <Pack>true</Pack>
             <PackageCopyToOutput>true</PackageCopyToOutput>
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-            <TargetPath>runtimes/maccatalyst/libllama.dylib</TargetPath>
+            <TargetPath>libllama.dylib</TargetPath>
+        </None>
+    </ItemGroup>
+    <ItemGroup Condition="$(TargetFramework.Contains('-macos')) == true ">
+        <None Visible="false" Include="$(MSBuildThisFileDirectory)macos\libllama.dylib">
+            <Pack>true</Pack>
+            <PackageCopyToOutput>true</PackageCopyToOutput>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <TargetPath>libllama.dylib</TargetPath>
         </None>
     </ItemGroup>
     <ItemGroup Condition="$(RuntimeIdentifier.StartsWith('tvos-'))">
@@ -44,7 +52,7 @@
             <Pack>true</Pack>
             <PackageCopyToOutput>true</PackageCopyToOutput>
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-            <TargetPath>runtimes/win-x64/libllama.dll</TargetPath>
+            <TargetPath>libllama.dll</TargetPath>
         </None>
     </ItemGroup>
     <ItemGroup Condition="$(AndroidSupportedAbis.Contains('x86')) or $(RuntimeIdentifiers.Contains('android-x86'))">
@@ -71,19 +79,19 @@
             <Pack>true</Pack>
             <PackageCopyToOutput>true</PackageCopyToOutput>
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-            <TargetPath>runtimes/osx/libllama.dylib</TargetPath>
+            <TargetPath>libllama.dylib</TargetPath>
         </None>
         <None Visible="false" Include="$(MSBuildThisFileDirectory)linux-arm64\libllama.so">
             <Pack>true</Pack>
             <PackageCopyToOutput>true</PackageCopyToOutput>
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-            <TargetPath>runtimes/linux-arm64/libllama.so</TargetPath>
+            <TargetPath>libllama.so</TargetPath>
         </None>
         <None Visible="false" Include="$(MSBuildThisFileDirectory)linux-x64\libllama.so">
             <Pack>true</Pack>
             <PackageCopyToOutput>true</PackageCopyToOutput>
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-            <TargetPath>runtimes/linux-x64/libllama.so</TargetPath>
+            <TargetPath>libllama.so</TargetPath>
         </None>
     </ItemGroup>
 </Project>
