@@ -1,7 +1,17 @@
 BUILD_TYPE=Release
 VERSION=1.0.0
 BUILD_SHARED_LIBS=true
-NDK_PATH=/Users/drasticactions/Library/Android/sdk/ndk/25.2.9519653
+NDK :=
+ifeq ($(strip $(NDK_PATH)),)
+    ifeq ($(shell test -d $(HOME)/Library/Developer/Xamarin/android-sdk-macosx/ndk-bundle && echo -n yes),yes)
+        NDK := $(HOME)/Library/Developer/Xamarin/android-sdk-macosx/ndk-bundle
+    else
+        $(error NDK_PATH not defined and NDK not found at default location on Mac.)
+    endif
+else
+    NDK := $(strip $(NDK_PATH))
+endif
+
 CMAKE_COMMANDS=-DCMAKE_BUILD_TYPE=$(BUILD_TYPE) 
 ifeq ($(BUILD_SHARED_LIBS), true)
 	CMAKE_COMMANDS+=-DBUILD_SHARED_LIBS=ON
@@ -125,21 +135,21 @@ lipo:
 
 android_arm64-v8a:
 	rm -rf build/android-arm64-v8a
-	cmake -DCMAKE_ANDROID_ARCH_ABI=arm64-v8a $(CMAKE_COMMANDS) -DCMAKE_SYSTEM_NAME=Android -DCMAKE_ANDROID_API=21 -DCMAKE_ANDROID_NDK=$(NDK_PATH) -S . -B build/android-arm64-v8a
+	cmake -DCMAKE_ANDROID_ARCH_ABI=arm64-v8a $(CMAKE_COMMANDS) -DCMAKE_SYSTEM_NAME=Android -DCMAKE_ANDROID_API=21 -DCMAKE_ANDROID_NDK=$(NDK) -S . -B build/android-arm64-v8a
 	cmake --build build/android-arm64-v8a
 	mkdir -p Llama.cpp.Runtime/android-arm64-v8a
 	cp build/android-arm64-v8a/llama.cpp/libllama.so Llama.cpp.Runtime/android-arm64-v8a/libllama.so
 
 android_x86:
 	rm -rf build/android-x86
-	cmake -DCMAKE_ANDROID_ARCH_ABI=x86 $(CMAKE_COMMANDS) -DCMAKE_SYSTEM_NAME=Android -DCMAKE_ANDROID_API=21 -DCMAKE_ANDROID_NDK=$(NDK_PATH) -S . -B build/android-x86
+	cmake -DCMAKE_ANDROID_ARCH_ABI=x86 $(CMAKE_COMMANDS) -DCMAKE_SYSTEM_NAME=Android -DCMAKE_ANDROID_API=21 -DCMAKE_ANDROID_NDK=$(NDK) -S . -B build/android-x86
 	cmake --build build/android-x86
 	mkdir -p Llama.cpp.Runtime/android-x86
 	cp build/android-x86/llama.cpp/libllama.so Llama.cpp.Runtime/android-x86/libllama.so
 
 android_x64:
 	rm -rf build/android-x86_64
-	cmake -DCMAKE_ANDROID_ARCH_ABI=x86_64 $(CMAKE_COMMANDS) -DCMAKE_SYSTEM_NAME=Android -DCMAKE_ANDROID_API=21 -DCMAKE_ANDROID_NDK=$(NDK_PATH) -S . -B build/android-x86_64
+	cmake -DCMAKE_ANDROID_ARCH_ABI=x86_64 $(CMAKE_COMMANDS) -DCMAKE_SYSTEM_NAME=Android -DCMAKE_ANDROID_API=21 -DCMAKE_ANDROID_NDK=$(NDK) -S . -B build/android-x86_64
 	cmake --build build/android-x86_64
 	mkdir -p Llama.cpp.Runtime/android-x86_64
 	cp build/android-x86_64/llama.cpp/libllama.so Llama.cpp.Runtime/android-x86_64/libllama.so

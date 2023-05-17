@@ -353,6 +353,6 @@ MigrationBackup/
 
 #build path for CMake
 /src/build
-/build
-/runtimes
-/nupkgs
+build/
+runtimes/
+nupkgs/
